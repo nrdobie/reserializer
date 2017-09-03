@@ -1,7 +1,10 @@
+// @flow
 import toPath from 'lodash.topath'
 import { getIn, setIn } from 'timm'
 
-export default function date(property) {
+import type { Path, Serializer } from '../types'
+
+export default function date (property: Path): Serializer {
   const path = Array.isArray(property) ? property : toPath(property)
 
   return {
@@ -17,17 +20,17 @@ export default function date(property) {
       return input
     },
 
-    unserialize (input) {
-      const dateStr = getIn(input, path)
+    unserialize (output) {
+      const dateStr = getIn(output, path)
 
       const dateObj = new Date(dateStr)
 
       // If date is not a number, then the string wasn't a valid date
       if (isNaN(dateObj)) {
-        return input
+        return output
       }
 
-      return setIn(input, path, dateObj)
+      return setIn(output, path, dateObj)
     }
   }
 }
