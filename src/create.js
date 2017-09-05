@@ -1,6 +1,9 @@
-export const CREATE_ID = Symbol('CREATE_ID') 
+// @flow
+import type { Serializer } from './types'
 
-export default function create(...transforms) {
+export const CREATE_ID = 'CREATE_ID'
+
+export default function create(...transforms: Array<Serializer>): Serializer {
   return {
     serialize (input) {
       const runner = (rawItem) => {

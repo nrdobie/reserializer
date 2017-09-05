@@ -1,9 +1,12 @@
+// @flow
 import toPath from 'lodash.topath'
 import { getIn, setIn } from 'timm'
 
 import removeIn from '../utils/removeIn'
 
-export default function rename(originalProperty, newProperty) {
+import type { Path, Serializer } from '../types'
+
+export default function rename (originalProperty: Path, newProperty: Path): Serializer {
   const originalPath = Array.isArray(originalProperty) ? originalProperty : toPath(originalProperty)
   const newPath = Array.isArray(newProperty) ? newProperty : toPath(newProperty)
 
@@ -21,17 +24,17 @@ export default function rename(originalProperty, newProperty) {
       return input
     },
 
-    unserialize (input) {
-      const oldValue = getIn(input, newPath)
+    unserialize (output) {
+      const oldValue = getIn(output, newPath)
 
       if (oldValue) {
-        let output = removeIn(input, newPath)
-        output = setIn(output, originalPath, oldValue)
+        let input = removeIn(output, newPath)
+        input = setIn(input, originalPath, oldValue)
 
-        return output
+        return input
       }
 
-      return input
+      return output
     }
   }
 }

@@ -1,13 +1,16 @@
+// @flow
 import toPath from 'lodash.topath'
 import { getIn, setIn } from 'timm'
 
 import create, { CREATE_ID } from './create'
 
-export default function at (property, ...serializers) {
+import type { Path, Serializer } from './types'
+
+export default function at (property: Path, ...serializers: Array<Serializer>): Serializer {
   const path = Array.isArray(property) ? property : toPath(property)
   
   let serializer
-  if (serializers.length === 1 && serializers[0][CREATE_ID]) {
+  if (serializers.length === 1 && CREATE_ID in serializers[0]) {
     serializer = serializers[0]
   } else {
     serializer = create(...serializers)
@@ -25,16 +28,17 @@ export default function at (property, ...serializers) {
 
       return setIn(input, path, nextValue)
     },
-    unserialize (input) {
-      const oldValue = getIn(input, path)
+
+    unserialize (output) {
+      const oldValue = getIn(output, path)
 
       if (!oldValue) {
-        return input
+        return output
       }
 
       const nextValue = serializer.unserialize(oldValue)
 
-      return setIn(input, path, nextValue)
+      return setIn(output, path, nextValue)
     },
   }
 }

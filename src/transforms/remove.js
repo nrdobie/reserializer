@@ -1,9 +1,12 @@
+// @flow
 import toPath from 'lodash.topath'
 import { getIn } from 'timm'
 
 import removeIn from '../utils/removeIn'
 
-export default function remove(property) {
+import type { Path, Serializer } from '../types'
+
+export default function remove (property: Path): Serializer {
   const path = Array.isArray(property) ? property : toPath(property)
 
   return {
@@ -17,14 +20,14 @@ export default function remove(property) {
       return input
     },
 
-    unserialize (input) {
-      const oldValue = getIn(input, path)
+    unserialize (output) {
+      const oldValue = getIn(output, path)
 
       if (oldValue) {
-        return removeIn(input, path)
+        return removeIn(output, path)
       }
 
-      return input
+      return output
     }
   }
 }
