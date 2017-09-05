@@ -1,5 +1,15 @@
 {
   "name": "reserializer",
   "description": "Smart serializer builder",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^20.0.3",
+    "babel-preset-env": "^1.6.0",
+    "jest": "^20.0.4"
+  }
 }
