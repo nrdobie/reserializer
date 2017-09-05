@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "lodash.isplainobject": "^4.0.6",
-    "lodash.topath": "^4.5.2"
+    "lodash.topath": "^4.5.2",
+    "timm": "^1.2.5"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
