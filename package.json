@@ -6,10 +6,16 @@
   "scripts": {
     "test": "jest"
   },
+  "dependencies": {
+    "lodash.isplainobject": "^4.0.6",
+    "lodash.topath": "^4.5.2",
+    "timm": "^1.2.5"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^20.0.3",
     "babel-preset-env": "^1.6.0",
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "lodash.clonedeep": "^4.5.0"
   }
 }
