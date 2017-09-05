@@ -1,7 +1,7 @@
 // @flow
-import type { Serializer } from '../types'
+import type { JSONSerializer } from '../types'
 
-export default function asJSON (): Serializer<{}, string> {
+export default function asJSON (): JSONSerializer {
   return {
     serialize (input) {
       return JSON.stringify(input)
