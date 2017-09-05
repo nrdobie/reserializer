@@ -1,11 +1,14 @@
-export default function asPrettyJSON () {
+// @flow
+import type { Serializer } from '../types'
+
+export default function asPrettyJSON (): Serializer<{}, string> {
   return {
     serialize (input) {
       return JSON.stringify(input, null, '  ')
     },
 
-    unserialize (input) {
-      return JSON.parse(input)
+    unserialize (output) {
+      return JSON.parse(output)
     }
   }
 }

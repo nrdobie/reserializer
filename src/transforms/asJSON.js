@@ -1,11 +1,14 @@
-export default function asJSON () {
+// @flow
+import type { Serializer } from '../types'
+
+export default function asJSON (): Serializer<{}, string> {
   return {
     serialize (input) {
       return JSON.stringify(input)
     },
 
-    unserialize (input) {
-      return JSON.parse(input)
+    unserialize (output) {
+      return JSON.parse(output)
     }
   }
 }
