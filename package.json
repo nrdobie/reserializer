@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "start": "rollup -c rollup.config.js -w",
+    "build": "rollup -c rollup.config.js",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "lodash.isplainobject": "^4.0.6",
@@ -14,10 +16,16 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^20.0.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-flow-comments": "^6.22.0",
     "babel-preset-env": "^1.6.0",
     "flow-bin": "^0.54.0",
     "jest": "^20.0.4",
-    "lodash.clonedeep": "^4.5.0"
+    "lodash.clonedeep": "^4.5.0",
+    "rollup": "^0.49.2",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.2.0",
+    "rollup-plugin-node-resolve": "^3.0.0"
   }
 }
