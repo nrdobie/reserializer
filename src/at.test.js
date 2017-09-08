@@ -47,13 +47,13 @@ describe('at', () => {
       serializer = at('a', subSerializer)
     })
 
-    it ('should call subSerializer.serialize on serialize', () => {
+    it('should call subSerializer.serialize on serialize', () => {
       serializer.serialize(input)
 
       expect(subSerializer.serialize).toHaveBeenCalledWith(input.a)
     })
 
-    it ('should call subSerializer.unserialize on unserialize', () => {
+    it('should call subSerializer.unserialize on unserialize', () => {
       serializer.unserialize(input)
 
       expect(subSerializer.unserialize).toHaveBeenCalledWith(input.a)
@@ -90,14 +90,14 @@ describe('at', () => {
 
       serializer = at('a.c', subSerializer)
     })
-    
-    it ('should call subSerializer.serialize on serialize', () => {
+
+    it('should call subSerializer.serialize on serialize', () => {
       serializer.serialize(input)
 
       expect(subSerializer.serialize).toHaveBeenCalledWith(input.a.c)
     })
 
-    it ('should call subSerializer.unserialize on unserialize', () => {
+    it('should call subSerializer.unserialize on unserialize', () => {
       serializer.unserialize(input)
 
       expect(subSerializer.unserialize).toHaveBeenCalledWith(input.a.c)
@@ -129,19 +129,19 @@ describe('at', () => {
       subSerializer = {
         serialize: jest.fn((i) => i),
         unserialize: jest.fn((i) => i),
-        [CREATE_ID]: true        
+        [CREATE_ID]: true
       }
 
       serializer = at(['a', 'c'], subSerializer)
     })
-    
-    it ('should call subSerializer.serialize on serialize', () => {
+
+    it('should call subSerializer.serialize on serialize', () => {
       serializer.serialize(input)
 
       expect(subSerializer.serialize).toHaveBeenCalledWith(input.a.c)
     })
 
-    it ('should call subSerializer.unserialize on unserialize', () => {
+    it('should call subSerializer.unserialize on unserialize', () => {
       serializer.unserialize(input)
 
       expect(subSerializer.unserialize).toHaveBeenCalledWith(input.a.c)

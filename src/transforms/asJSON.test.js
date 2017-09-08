@@ -1,11 +1,11 @@
 import asJSON from './asJSON'
 
 describe('asJSON', () => {
-  it ('should have preadded "serialize"', () => {
+  it('should have preadded "serialize"', () => {
     expect(asJSON.serialize).toBeDefined()
   })
 
-  it ('should have preadded "unserialize"', () => {
+  it('should have preadded "unserialize"', () => {
     expect(asJSON.unserialize).toBeDefined()
   })
 
@@ -17,11 +17,11 @@ describe('asJSON', () => {
     beforeEach(() => {
       serializer = asJSON()
     })
-    it ('should have "serialize"', () => {
+    it('should have "serialize"', () => {
       expect(serializer.serialize).toBeDefined()
     })
-  
-    it ('should have "unserialize"', () => {
+
+    it('should have "unserialize"', () => {
       expect(serializer.unserialize).toBeDefined()
     })
 
