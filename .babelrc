@@ -3,10 +3,12 @@
     ["env",  {"modules": false}],
     "flow"
   ],
-  "plugins": [
-    "external-helpers"
-  ],
   "env": {
+    "build": {
+      "plugins": [
+        "external-helpers"
+      ]
+    },
     "test": {
       "plugins": [
         "transform-es2015-modules-commonjs"

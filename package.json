@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "rollup -c rollup.config.js -w",
-    "build:js": "rollup -c rollup.config.js",
+    "build:js": "NODE_ENV=build rollup -c rollup.config.js",
     "build:flow": "flow gen-flow-files ./src/index.js > ./index.js.flow",
     "build": "npm run build:js && npm run build:flow",
+    "lint": "standard | snazzy",
+    "lint:fix": "standard --fix | snazzy",
+    "start": "NODE_ENV=build rollup -c rollup.config.js -w",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
@@ -17,17 +19,31 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
+    "eslint-plugin-flowtype": "^2.35.1",
     "flow-bin": "^0.54.0",
     "jest": "^20.0.4",
     "lodash.clonedeep": "^4.5.0",
     "rollup": "^0.49.2",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.0",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "fix": true,
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "env": {
+      "jest": true
+    }
   }
 }
