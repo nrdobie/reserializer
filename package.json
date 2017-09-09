@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
-    "build": "rollup -c rollup.config.js",
+    "build:js": "rollup -c rollup.config.js",
+    "build:flow": "flow gen-flow-files ./src/index.js > ./index.js.flow",
+    "build": "npm run build:js && npm run build:flow",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
@@ -18,8 +20,8 @@
     "babel-jest": "^20.0.3",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "babel-plugin-transform-flow-comments": "^6.22.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.54.0",
     "jest": "^20.0.4",
     "lodash.clonedeep": "^4.5.0",
