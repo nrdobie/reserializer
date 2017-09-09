@@ -8,7 +8,7 @@ import type { Path, Serializer } from './types'
 
 export default function at (property: Path, ...serializers: Array<Serializer>): Serializer {
   const path = Array.isArray(property) ? property : toPath(property)
-  
+
   let serializer
   if (serializers.length === 1 && CREATE_ID in serializers[0]) {
     serializer = serializers[0]
@@ -39,6 +39,6 @@ export default function at (property: Path, ...serializers: Array<Serializer>): 
       const nextValue = serializer.unserialize(oldValue)
 
       return setIn(output, path, nextValue)
-    },
+    }
   }
 }

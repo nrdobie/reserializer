@@ -16,13 +16,13 @@ describe('rename', () => {
 
     it('should handle missing property on serialize', () => {
       const test = {c: 1}
-      
+
       expect(serializer.serialize(test)).toBe(test)
     })
 
     it('should handle missing property on unserialize', () => {
       const test = {c: 1}
-      
+
       expect(serializer.unserialize(test)).toBe(test)
     })
   })
@@ -42,13 +42,13 @@ describe('rename', () => {
 
     it('should handle missing property on serialize', () => {
       const test = {a: {c: 2}}
-      
+
       expect(serializer.serialize(test)).toBe(test)
     })
 
     it('should handle missing property on unserialize', () => {
       const test = {c: {e: 2}}
-      
+
       expect(serializer.unserialize(test)).toBe(test)
     })
   })
@@ -68,13 +68,13 @@ describe('rename', () => {
 
     it('should handle missing property on serialize', () => {
       const test = {a: {c: 2}}
-      
+
       expect(serializer.serialize(test)).toBe(test)
     })
 
     it('should handle missing property on unserialize', () => {
       const test = {c: {e: 2}}
-      
+
       expect(serializer.unserialize(test)).toBe(test)
     })
   })

@@ -24,12 +24,12 @@ describe('create', () => {
     serializer = create(A, B, C)
   })
 
-  it ('should have create identifier', () => {
+  it('should have create identifier', () => {
     expect(serializer[CREATE_ID]).toBe(true)
   })
 
   describe('serialize', () => {
-    it ('should call all transforms', () => {
+    it('should call all transforms', () => {
       serializer.serialize('S')
 
       expect(A.serialize).toHaveBeenCalled()
@@ -37,13 +37,13 @@ describe('create', () => {
       expect(C.serialize).toHaveBeenCalled()
     })
 
-    it ('should call transforms in the correct order', () => {
+    it('should call transforms in the correct order', () => {
       expect(serializer.serialize('S')).toBe('S -> C -> B -> A')
     })
   })
 
   describe('serialize with array', () => {
-    it ('should call all transforms', () => {
+    it('should call all transforms', () => {
       serializer.serialize(['S0', 'S1'])
 
       expect(A.serialize).toHaveBeenCalledTimes(2)
@@ -51,13 +51,13 @@ describe('create', () => {
       expect(C.serialize).toHaveBeenCalledTimes(2)
     })
 
-    it ('should call transforms in the correct order', () => {
+    it('should call transforms in the correct order', () => {
       expect(serializer.serialize(['S0', 'S1'])).toEqual(['S0 -> C -> B -> A', 'S1 -> C -> B -> A'])
     })
   })
 
   describe('unserialize', () => {
-    it ('should call all transforms', () => {
+    it('should call all transforms', () => {
       serializer.unserialize('U')
 
       expect(A.unserialize).toHaveBeenCalled()
@@ -65,13 +65,13 @@ describe('create', () => {
       expect(C.unserialize).toHaveBeenCalled()
     })
 
-    it ('should call transforms in the correct order', () => {
+    it('should call transforms in the correct order', () => {
       expect(serializer.unserialize('U')).toBe('U -> A -> B -> C')
     })
   })
-  
+
   describe('unserialize with array', () => {
-    it ('should call all transforms', () => {
+    it('should call all transforms', () => {
       serializer.unserialize(['U0', 'U1'])
 
       expect(A.unserialize).toHaveBeenCalledTimes(2)
@@ -79,7 +79,7 @@ describe('create', () => {
       expect(C.unserialize).toHaveBeenCalledTimes(2)
     })
 
-    it ('should call transforms in the correct order', () => {
+    it('should call transforms in the correct order', () => {
       expect(serializer.unserialize(['U0', 'U1'])).toEqual(['U0 -> A -> B -> C', 'U1 -> A -> B -> C'])
     })
   })

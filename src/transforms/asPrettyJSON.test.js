@@ -1,11 +1,11 @@
 import asPrettyJSON from './asPrettyJSON'
 
 describe('asPrettyJSON', () => {
-  it ('should have preadded "serialize"', () => {
+  it('should have preadded "serialize"', () => {
     expect(asPrettyJSON.serialize).toBeDefined()
   })
 
-  it ('should have preadded "unserialize"', () => {
+  it('should have preadded "unserialize"', () => {
     expect(asPrettyJSON.unserialize).toBeDefined()
   })
 
@@ -17,11 +17,11 @@ describe('asPrettyJSON', () => {
     beforeEach(() => {
       serializer = asPrettyJSON()
     })
-    it ('should have "serialize"', () => {
+    it('should have "serialize"', () => {
       expect(serializer.serialize).toBeDefined()
     })
-  
-    it ('should have "unserialize"', () => {
+
+    it('should have "unserialize"', () => {
       expect(serializer.unserialize).toBeDefined()
     })
 

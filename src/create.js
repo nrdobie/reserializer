@@ -3,18 +3,19 @@ import type { Serializer } from './types'
 
 export const CREATE_ID = 'CREATE_ID'
 
-export default function create(...transforms: Array<Serializer>): Serializer {
+export default function create (...transforms: Array<Serializer>): Serializer {
   return {
     serialize (input) {
       const runner = (rawItem) => {
         // Make copy of transforms
         const tempTransforms = transforms.slice()
-  
+
         let serializedItem = rawItem
-        let transform
-  
-        while(transform = tempTransforms.pop()) {
+        let transform = tempTransforms.pop()
+
+        while (transform) {
           serializedItem = transform.serialize(serializedItem)
+          transform = tempTransforms.pop()
         }
 
         return serializedItem
@@ -32,12 +33,13 @@ export default function create(...transforms: Array<Serializer>): Serializer {
         // Make copy of transforms
         const tempTransforms = transforms.slice()
         tempTransforms.reverse()
-  
+
         let serializedItem = rawItem
-        let transform
-  
-        while(transform = tempTransforms.pop()) {
+        let transform = tempTransforms.pop()
+
+        while (transform) {
           serializedItem = transform.unserialize(serializedItem)
+          transform = tempTransforms.pop()
         }
 
         return serializedItem
