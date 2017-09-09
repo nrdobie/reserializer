@@ -1,8 +1,16 @@
 {
   "presets": [
-    "env"
+    ["env",  {"modules": false}]
   ],
   "plugins": [
+    "external-helpers",
     "transform-flow-comments"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
