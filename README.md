@@ -1,5 +1,8 @@
 # Reserializer
 
+[![Travis](https://img.shields.io/travis/nrdobie/reserializer.svg?style=flat-square)](https://github.com/nrdobie/reserializer)
+[![Codecov](https://img.shields.io/codecov/c/github/nrdobie/reserializer.svg?style=flat-square)](https://github.com/nrdobie/reserializer)
+
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
 Build smart serializers.
