@@ -9,7 +9,7 @@ Build smart serializers.
 
 ## Why Reserializer?
 
-Data serialization is used to help send and store data when Objects can't be sent, such as HTTP requests, file and local storage, and IPC. Reserializer is designed to be a quick and easy solution to build serializers that are able to both serialize and unserialize data.
+Data serialization is used to help send and store data when objects can't be sent, such as HTTP requests, file storage, local storage, and IPC. Reserializer is designed to be a quick and easy solution to build serializers that are able to both serialize and unserialize data.
 
 ## Example
 
@@ -30,11 +30,12 @@ const input = {
   _meta: {
     created: new Date('2017-01-01T00:00:00'),
     updated: new Date('2017-01-01T12:00:00')
-  }
+  },
+  extra: true
 }
 
 const output = serializer.serialize(input) 
-  // => '{"_meta":{"created":"2017-01-01T00:00:00","updated":"2017-01-01T12:00:00"}}'
+  // => '{"_meta":{"created":"2017-01-01T00:00:00","updated":"2017-01-01T12:00:00"},"extra":true}'
 
 
 const newInput = serializer.unserialize(output)
@@ -42,7 +43,8 @@ const newInput = serializer.unserialize(output)
   //   _meta: {
   //     created: new Date('2017-01-01T00:00:00'),
   //     updated: new Date('2017-01-01T12:00:00')
-  //   }
+  //   },
+  //   extra: true
   // }
 ```
 ## API
