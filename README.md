@@ -1,6 +1,9 @@
 # Reserializer
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+[![Travis](https://img.shields.io/travis/nrdobie/reserializer.svg?style=flat-square)](https://github.com/nrdobie/reserializer)
+[![Codecov](https://img.shields.io/codecov/c/github/nrdobie/reserializer.svg?style=flat-square)](https://github.com/nrdobie/reserializer)
+[![Known Vulnerabilities](https://snyk.io/test/github/nrdobie/reserializer/badge.svg?style=flat-square)](https://snyk.io/test/github/snyk/goof)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
 
 Build smart serializers.
 
@@ -21,6 +24,26 @@ const serializer = create(
   date('_meta.updated'),
   remove('internalID')
 )
+
+const input = {
+  internalID: 'something private',
+  _meta: {
+    created: new Date('2017-01-01T00:00:00'),
+    updated: new Date('2017-01-01T12:00:00')
+  }
+}
+
+const output = serializer.serialize(input) 
+  // => '{"_meta":{"created":"2017-01-01T00:00:00","updated":"2017-01-01T12:00:00"}}'
+
+
+const newInput = serializer.unserialize(output)
+  // => {
+  //   _meta: {
+  //     created: new Date('2017-01-01T00:00:00'),
+  //     updated: new Date('2017-01-01T12:00:00')
+  //   }
+  // }
 ```
 ## API
 
