@@ -1,7 +1,7 @@
 {
   "name": "reserializer",
   "description": "Smart serializer builder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "scripts": {
     "build:js": "NODE_ENV=build rollup -c rollup.config.js",
