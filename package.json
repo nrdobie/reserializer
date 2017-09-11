@@ -10,7 +10,7 @@
     "lint": "standard | snazzy",
     "lint:fix": "standard --fix | snazzy",
     "release": "standard-version",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "start": "NODE_ENV=build rollup -c rollup.config.js -w",
     "test": "NODE_ENV=test jest"
   },

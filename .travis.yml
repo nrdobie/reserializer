@@ -11,7 +11,7 @@ before_deploy:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - npm run release
-- git push --quite https://nrdobie:$GITHUB_API_KEY@github.com/nrdobie/reserializer.git --tags
+- git push --quiet https://nrdobie:$GITHUB_API_KEY@github.com/nrdobie/reserializer.git --tags
 deploy:
   provider: npm
   email: nick@dobie.me
