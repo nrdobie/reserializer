@@ -4,7 +4,7 @@
 [![Codecov](https://img.shields.io/codecov/c/github/nrdobie/reserializer.svg?style=flat-square)](https://codecov.io/gh/nrdobie/reserializer)
 [![npm](https://img.shields.io/npm/v/reserializer.svg?style=flat-square)](https://www.npmjs.com/package/reserializer)
 [![npm](https://img.shields.io/npm/dw/reserializer.svg?style=flat-square)](https://www.npmjs.com/package/reserializer)
-[![Known Vulnerabilities](https://snyk.io/test/github/nrdobie/reserializer/badge.svg?style=flat-square)](https://snyk.io/test/github/snyk/goof)
+[![Known Vulnerabilities](https://snyk.io/test/github/nrdobie/reserializer/badge.svg?style=flat-square)](https://snyk.io/test/github/nrdobie/reserializer)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
 
 Build smart serializers.
