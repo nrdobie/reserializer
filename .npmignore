@@ -1,0 +1,6 @@
+src/
+.babelrc
+.flowconfig
+.travis.yml
+coverage/
+.vscode/

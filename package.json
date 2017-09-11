@@ -1,7 +1,7 @@
 {
   "name": "reserializer",
   "description": "Smart serializer builder",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "build:js": "NODE_ENV=build rollup -c rollup.config.js",
@@ -9,6 +9,8 @@
     "build": "npm run build:js && npm run build:flow",
     "lint": "standard | snazzy",
     "lint:fix": "standard --fix | snazzy",
+    "release": "standard-version",
+    "prepublish": "npm run build",
     "start": "NODE_ENV=build rollup -c rollup.config.js -w",
     "test": "NODE_ENV=test jest"
   },
@@ -34,7 +36,8 @@
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.3"
+    "standard": "^10.0.3",
+    "standard-version": "^4.2.0"
   },
   "standard": {
     "fix": true,
