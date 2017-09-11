@@ -1,14 +1,17 @@
 # Reserializer
 
-[![Travis](https://img.shields.io/travis/nrdobie/reserializer.svg?style=flat-square)](https://github.com/nrdobie/reserializer)
-[![Codecov](https://img.shields.io/codecov/c/github/nrdobie/reserializer.svg?style=flat-square)](https://github.com/nrdobie/reserializer)
+[![Travis](https://img.shields.io/travis/nrdobie/reserializer.svg?style=flat-square)](https://travis-ci.org/nrdobie/reserializer/)
+[![Codecov](https://img.shields.io/codecov/c/github/nrdobie/reserializer.svg?style=flat-square)](https://codecov.io/gh/nrdobie/reserializer)
+[![npm](https://img.shields.io/npm/v/reserializer.svg?style=flat-square)](https://www.npmjs.com/package/reserializer)
+[![npm](https://img.shields.io/npm/dw/reserializer.svg?style=flat-square)](https://www.npmjs.com/package/reserializer)
+[![Known Vulnerabilities](https://snyk.io/test/github/nrdobie/reserializer/badge.svg?style=flat-square)](https://snyk.io/test/github/nrdobie/reserializer)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square)](https://standardjs.com)
 
 Build smart serializers.
 
 ## Why Reserializer?
 
-Data serialization is used to help send and store data when Objects can't be sent, such as HTTP requests, file and local storage, and IPC. Reserializer is designed to be a quick and easy solution to build serializers that are able to both serialize and unserialize data.
+Data serialization is used to help send and store data when objects can't be sent, such as HTTP requests, file storage, local storage, and IPC. Reserializer is designed to be a quick and easy solution to build serializers that are able to both serialize and unserialize data.
 
 ## Example
 
@@ -23,6 +26,28 @@ const serializer = create(
   date('_meta.updated'),
   remove('internalID')
 )
+
+const input = {
+  internalID: 'something private',
+  _meta: {
+    created: new Date('2017-01-01T00:00:00'),
+    updated: new Date('2017-01-01T12:00:00')
+  },
+  extra: true
+}
+
+const output = serializer.serialize(input) 
+  // => '{"_meta":{"created":"2017-01-01T00:00:00","updated":"2017-01-01T12:00:00"},"extra":true}'
+
+
+const newInput = serializer.unserialize(output)
+  // => {
+  //   _meta: {
+  //     created: new Date('2017-01-01T00:00:00'),
+  //     updated: new Date('2017-01-01T12:00:00')
+  //   },
+  //   extra: true
+  // }
 ```
 ## API
 
@@ -32,7 +57,7 @@ Utilities don't directly affect data but are used to help apply tranforms accord
 
 #### `create(...transforms)`
 
-Recieves multiple tranforms and runs data through each transform returning the final version. A serializer from reserializer can accept and object or array, for arrays the serializer will loop through each item applying each transform. If `create` is given transforms `A`, `B`, and `C` as `create(A, B, C)`, on serialize, `create` will run the transforms in reverse order, i.e. `C -> B -> A`, and on unserialize, `create` will run the transforms in the given order, i.e. `A -> B -> C`.
+Recieves multiple tranforms and runs data through each transform returning the final version. A serializer from reserializer can accept and object or array, for arrays the serializer will loop through each item applying the transforms. If `create` is given transforms `A`, `B`, and `C` as `create(A, B, C)`, on serialize, `create` will run the transforms in reverse order, i.e. `C -> B -> A`, and on unserialize, `create` will run the transforms in the given order, i.e. `A -> B -> C`.
 
 #### `at(property, ...transforms)`
 
@@ -44,7 +69,7 @@ Transforms are used to convert the data.
 
 #### `asJSON` / `asPrettyJSON`
 
-This transform converts data between and object and JSON string. This should be the first transform in the list when creating a serializer. `asPrettyJSON` produces a nicely indented JSON structure and is recommened for debugging and development.
+This transform converts data between an object and JSON string. This should be the first transform in the list when creating a serializer. `asPrettyJSON` produces a nicely indented JSON structure and is recommened for debugging and development.
 
 #### `date(property)`
 
