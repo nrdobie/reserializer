@@ -20,8 +20,8 @@ deploy:
   on:
     branch: master
 after_deploy:
-- git push --quiet https://nrdobie:$GITHUB_API_KEY@github.com/nrdobie/reserializer.git master
-- git push --quiet https://nrdobie:$GITHUB_API_KEY@github.com/nrdobie/reserializer.git --tags
+- git push https://nrdobie:$GITHUB_API_KEY@github.com/nrdobie/reserializer.git master
+- git push https://nrdobie:$GITHUB_API_KEY@github.com/nrdobie/reserializer.git --tags
 env:
   global:
     secure: iamYQQpdXf4zcgN2TQdXyqbYmpVGxq9ILttDhHeA4SjPhpS57hDL3ByJNr84PghZ9qBTzGIDF6hNOAsczsdRiCMY9nc/hebL+QeH7hk+c6z8VEPNXq1fcO3otuJlmJPaWHXhC1P2x0KIL7boUKrS0C4P9awAh51XwRrdOgeQvrGqQhsqg/vz3JQ0S8CWcdxViTPT8Iamm+vVpAVZhXWcB+xB+YbIb8ZRw4OyxGI31QnL7jp0D1JTzAHtL/nAZ6dpi55WoIXtQmnHQ5yE1VGzB9OrgiaGrMF2PRuBiPTZty4skAd8pa4CzwpFs7InxaBNDu3Te9V2+9rjxRa1vrBW/xokXVlSzUo3+b143cutoTLF0Yu9K+nXk+ZR3RsaBlzc36HYof8EhMQtUn4VL2bV6ADHbREbyU+gVSAsUVOu8jkiVduHu0hrLRmQRW92CQO4JQ+6ECrkkOnDsm6Ck5DBHCj9PwwrjWmwIMFdOjK4rPvSJcKfcg2UUr+YYTzaj5243Kt9yz9XyTSipyc2c35bv4vh54f5c2p+xCoJzdTNAQlspCO4huN7NQ9X6FQqlLVIdPWr0XKPTpUhzhxKU59JN/4ZRuDZpoAK8yL2IJX+6neKxpHfLVfvcupxIt1lbV5MZvAplhfZ1IEP3hZX2Osq6uSWF4xsBWOi1jFrBYjPJ+g=
