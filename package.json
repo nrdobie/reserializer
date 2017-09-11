@@ -1,7 +1,7 @@
 {
   "name": "reserializer",
   "description": "Smart serializer builder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "scripts": {
     "build:js": "NODE_ENV=build rollup -c rollup.config.js",
@@ -48,5 +48,21 @@
     "env": {
       "jest": true
     }
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrdobie/reserializer.git"
+  },
+  "keywords": [
+    "json",
+    "serialize",
+    "serialization",
+    "serializer"
+  ],
+  "author": "Nicholas Dobie <nick@dobie.me>",
+  "bugs": {
+    "url": "https://github.com/nrdobie/reserializer/issues"
+  },
+  "homepage": "https://github.com/nrdobie/reserializer#readme"
 }
