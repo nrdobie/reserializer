@@ -44,7 +44,7 @@ describe('flatten', () => {
 
     expect(flatten(map)).toEqual(expectedFlattenedMap)
   })
-  
+
   it('should handle same name on a property', () => {
     const map = {
       test: true
@@ -61,7 +61,7 @@ describe('flatten', () => {
 
     expect(flatten(map)).toEqual(expectedFlattenedMap)
   })
-  
+
   it('should map the input and output on a nested input property', () => {
     const map = {
       _meta: {
@@ -80,7 +80,7 @@ describe('flatten', () => {
 
     expect(flatten(map)).toEqual(expectedFlattenedMap)
   })
-  
+
   it('should map the input and output on a nested output property', () => {
     const map = {
       test: '_meta.newTest'

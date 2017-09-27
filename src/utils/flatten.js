@@ -16,7 +16,7 @@ export default function flatten (map, prefix) {
           output: Object.assign({}, flatMap.output, nestedMap.output)
         }
       }
-      
+
       if (outputKey === true) {
         flatMap.input[inputKey] = inputKey
         flatMap.output[inputKey] = inputKey
@@ -28,4 +28,3 @@ export default function flatten (map, prefix) {
       return flatMap
     }, {input: {}, output: {}})
 }
-

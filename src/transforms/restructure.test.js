@@ -20,12 +20,12 @@ describe('restructure', () => {
     it('should change "b" to "a" on unserialize', () => {
       expect(serializer.unserialize(output)).toEqual(input)
     })
-    
+
     it('should remove extra props on serialize', () => {
       const test = {a: 1, c: 2}
       expect(serializer.serialize(test)).toEqual(output)
     })
-    
+
     it('should remove extra props on unserialize', () => {
       const test = {b: 1, c: 2}
       expect(serializer.unserialize(test)).toEqual(input)
@@ -52,12 +52,12 @@ describe('restructure', () => {
     it('should map props on unserialize', () => {
       expect(serializer.unserialize(output)).toEqual(input)
     })
-    
+
     it('should remove extra props on serialize', () => {
       const test = {a: {b: 1}, d: 2, z: 3}
       expect(serializer.serialize(test)).toEqual(output)
     })
-    
+
     it('should remove extra props on unserialize', () => {
       const test = {c: 1, e: {f: 2}, z: 3}
       expect(serializer.unserialize(test)).toEqual(input)

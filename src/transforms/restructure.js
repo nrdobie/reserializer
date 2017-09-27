@@ -9,7 +9,7 @@ type RestructureMap = {
   [string]: Path | RestructureMap
 }
 
-const remap = (rules) => (obj) => 
+const remap = (rules) => (obj) =>
   Object
     .keys(rules)
     .filter(key => rules.hasOwnProperty(key))
