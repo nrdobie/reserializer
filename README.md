@@ -55,3 +55,18 @@ This transform removes a property from the object on both serialization and unse
 #### `rename(oldProperty, newProperty)`
 
 This transform moves a property to a new path. Useful to help restructure data from an API request.
+
+#### `restructure(map)`
+
+This transform uses the map to move properties around. The given map uses the keys as the input keys and the values as output keys. Only properties in the map will be passed through the transform, all others will be lost.
+
+``` javascript
+const input = {
+  test: true
+}
+
+restructure({test: '_meta.test'}).serialize(input)
+// => {_meta: {test: true}}
+```
+
+A map can have nested objects for the input side and will use the structure accordingly, e.g. `{'_meta.test': 'test'}` is the same as `{_meta: {test: 'test'}}`. Also if you give a value of `true` the property will be copied to the same location, e.g. `{test: 'test'}` is the same as `{test: true}`.
