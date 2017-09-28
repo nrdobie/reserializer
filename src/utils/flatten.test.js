@@ -81,6 +81,23 @@ describe('flatten', () => {
     expect(flatten(map)).toEqual(expectedFlattenedMap)
   })
 
+  it('should map the input and output on a nested key input', () => {
+    const map = {
+      '_meta.test': 'newTest'
+    }
+
+    const expectedFlattenedMap = {
+      input: {
+        '_meta.test': 'newTest'
+      },
+      output: {
+        newTest: '_meta.test'
+      }
+    }
+
+    expect(flatten(map)).toEqual(expectedFlattenedMap)
+  })
+
   it('should map the input and output on a nested output property', () => {
     const map = {
       test: '_meta.newTest'
